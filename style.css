@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Andika&family=Roboto:wght@100&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --green:#43aa8b;
+    --red:#bc4749;
+}
+
+body{
+    background-color: #d0e9f2;
+    font-family: 'Andika', sans-serif;
+    color:rgba(25, 87, 233, 0.933);
+}
+
+.container{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:center ;
+    align-items: center;
+    padding-top: 3rem;
+}
+
+.budget_numbers{
+    display: flex;
+    justify-content: space-between;
+    width:70%;
+    max-width: 700px;
+    margin:1rem 0 3rem;
+}
+
+.number{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 10px 5px 5px;
+}
+
+.amount_container{
+    display: flex;
+}
+
+#amount_earned,#earned_symbol{color:var(--green)}
+#amount_spent,#spent_symbol{color:var(--red)}
+
+.input__area input{
+    border:none;
+    padding: 10px;
+    border-radius: 15px;
+    outline:none;
+    box-shadow: 10px 5px 5px;
+}
+
+.input__area #description{
+    width:330px
+}
+
+.input__area #amount{
+    width:100px;
+    text-align: center;
+}
+
+/* remove arrows from input */
+
+.input__area input::-webkit-outer-spin-button,
+.input__area input::-webkit-inner-spin-button{
+    --webkit-appearance:none
+}
+
+.button__area{
+    margin: 10px 0 3rem;
+    padding-top: 20px;
+}
+
+.button__area #add_income,
+.button__area #add_expense{
+    border:none;
+    padding:10px 20px;
+    color:white;
+    border-radius: 15px;
+    outline:none;
+    cursor:pointer
+}
+#add_income{background-color: var(--green);}
+#add_expense{background-color: var(--red);}
+
+.items_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width:100%;
+    max-width: 1000px;
+    padding-bottom: 100px;
+}
+#income_container h2{color: var(--green);}
+#expense_container h2{color: var(--red);}
+
+.container .item{
+    width:100%;
+    background-color: white;
+    border-radius: 15px;
+    margin:5px 0;
+    display:flex;
+    justify-content: space-between;
+    padding: 5px 40px 5px 30px;
+    position: relative;
+}
+.item_income,
+.item_expense{
+    display: flex;
+}
+
+.income span, .income p{color: var(--green);}
+.expense span, .expense p{color: var(--red);}
+
+.item #far{
+    position: absolute;
+    top:0;
+    right:0;
+    height:100%;
+    width:30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color:var(--red) ;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    cursor: pointer;
+    transform:translateX(30px);
+    opacity: 0;
+}
+
+.item:hover #far{
+    animation: showDelete;
+    animation-duration: 0.5sec;
+    animation-fill-mode: forwards;
+}
+
+@keyframes showDelete{
+    0%{
+        transform:translateX(30px);
+        opacity: 0;
+    }
+    100%{
+        transform:translateX(0);
+        opacity: 1;
+    }
+}
